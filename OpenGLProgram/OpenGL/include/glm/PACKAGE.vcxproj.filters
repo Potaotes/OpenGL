@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\WorkSpace\GLM\CMakeFiles\b92247cf1f057d35c424c93baff6b607\PACKAGE_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{B0CFEAD3-D774-3D7C-B276-1F4B14F2CDDE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
