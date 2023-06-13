@@ -21,6 +21,12 @@
     <ClCompile Include="include\glm\detail\glm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Util\FileUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\ErrorUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\glew32.lib" />
@@ -904,6 +910,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="include\glm\vector_relational.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\FileUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\ErrorUtil.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
