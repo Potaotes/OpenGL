@@ -135,6 +135,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\CharacterTwo\CProgram2_2.cpp" />
+    <ClCompile Include="Core\CProgramBase.cpp" />
     <ClCompile Include="Util\ErrorUtil.cpp" />
     <ClCompile Include="Util\FileUtil.cpp" />
     <ClCompile Include="include\glm\detail\glm.cpp" />
@@ -145,6 +147,8 @@
     <Library Include="lib\glfw3.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\CharacterTwo\CProgram2_2.h" />
+    <ClInclude Include="Core\CProgramBase.h" />
     <ClInclude Include="Util\ErrorUtil.h" />
     <ClInclude Include="Util\FileUtil.h" />
     <ClInclude Include="include\GLFW\glfw3.h" />

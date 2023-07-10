@@ -27,6 +27,12 @@
     <ClCompile Include="Util\ErrorUtil.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Core\CharacterTwo\CProgram2_2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\CProgramBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\glew32.lib" />
@@ -916,6 +922,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Util\ErrorUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\CharacterTwo\CProgram2_2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\CProgramBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
