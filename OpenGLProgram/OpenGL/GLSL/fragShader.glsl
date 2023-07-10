@@ -1,6 +1,6 @@
-#version 430
+ï»¿#version 430
 
-// out±êÇ©±íÊ¾color±äÁ¿ÊÇÊä³ö±äÁ¿, ÔÚ¶¥µã×ÅÉ«Æ÷ÖÐ²»ÊÇ±ØÐë, ÒòÎªgl_PositionÊÇÔ¤¶¨ÒåµÄÊä³ö±äÁ¿
+// outï¿½ï¿½Ç©ï¿½ï¿½Ê¾colorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Ð²ï¿½ï¿½Ç±ï¿½ï¿½ï¿½, ï¿½ï¿½Îªgl_Positionï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 out vec4 color;
 
 void main(void)
