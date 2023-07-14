@@ -1,31 +1,34 @@
 #include "CProgram2_2.h"
 
 CProgram2_2::CProgram2_2()
+	: m_nRenderingProgram(0)
 {
 
 }
 
-CProgram2_2::CProgram2_2(GLFWwindow* pWindow, GLuint nRenderingProgram, int nNumVAOs, GLuint arrVAO[])
+CProgram2_2::CProgram2_2(GLFWwindow* pWindow, int nNumVAOs, GLuint arrVAO[])
+	: m_nRenderingProgram(0)
 {
-	Init(pWindow, nRenderingProgram, nNumVAOs, arrVAO);
+	Init(pWindow, nNumVAOs, arrVAO);
 }
 
-void CProgram2_2::Display(GLFWwindow* pWindow, double dCurrentTime, GLuint& nRenderingProgram)
+void CProgram2_2::Display(GLFWwindow* pWindow, double dCurrentTime)
 {
 	// 用于将含有两个已编译的着色器程序载入管线阶段(在GPU上), 并没有运行着色器, 只是将着色器加载进硬件
-	glUseProgram(nRenderingProgram);
+	glUseProgram(m_nRenderingProgram);
 
 	// 改变像素点大小
-	//glPointSize(30.0f);
+	glPointSize(30.0f);
 
 	// 启动管线处理过程
-	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glDrawArrays(GL_POINTS, 0, 3);
 }
 
-void CProgram2_2::Init(GLFWwindow* pWindow, GLuint& nRenderingProgram, const int nNumVAOs, GLuint arrVAO[])
+void CProgram2_2::Init(GLFWwindow* pWindow, const int nNumVAOs, GLuint arrVAO[])
 {
-
-	nRenderingProgram = DrawTriangle(pWindow, glfwGetTime());
+	m_strVertextShader = "GLSL\\CharacterTwo\\vertextShader.vert";
+	m_strFragmentShader = "GLSL\\CharacterTwo\\fragmentShader.frag";
+	m_nRenderingProgram = DrawAPoint(pWindow, glfwGetTime());
 
 	// 当准备将数据集发送给管线时，数据集是以缓冲区的形式发送的
 	// 创建顶点数组对象(VAO)
@@ -41,11 +44,11 @@ GLuint CProgram2_2::DrawAPoint(GLFWwindow* pWindow, double dCurrentTime)
 	GLint nLinked = 0;
 
 	// 顶点着色器代码
-	string strVShaderSource = FileUtil::ReadShaderSource("GLSL\\CharacterTwo\\vertextShader.vert");
+	string strVShaderSource = FileUtil::ReadShaderSource(m_strVertextShader);
 	const GLchar* cVShaderSource = strVShaderSource.c_str();
 
 	// 片段着色器代码
-	string strFShaderSource = FileUtil::ReadShaderSource("GLSL\\CharacterTwo\\fragmentShader.frag");
+	string strFShaderSource = FileUtil::ReadShaderSource(m_strFragmentShader);
 	const GLchar* cFShaderSource = strFShaderSource.c_str();
 
 	// 创建Shader后返回的uint为唯一ID
@@ -97,64 +100,5 @@ GLuint CProgram2_2::DrawAPoint(GLFWwindow* pWindow, double dCurrentTime)
 		ErrorUtil::PrintProgramLog(nVFProgram);
 	}
 
-	return nVFProgram;
-}
-
-GLuint CProgram2_2::DrawTriangle(GLFWwindow* pWindow, double dCurrentTime)
-{
-	GLint nVertexComplied = 0;
-	GLint nFragComplied = 0;
-	GLint nLinked = 0;
-
-	// 加载着色器代码
-	string strVertextShader = FileUtil::ReadShaderSource("GLSL\\CharacterTwo\\triangleShader.vert");
-	const GLchar* cVShaderSource = strVertextShader.c_str();
-	string strFragmentShader = FileUtil::ReadShaderSource("GLSL\\CharacterTwo\\triangleShader.frag");
-	const GLchar* vFShaderSource = strFragmentShader.c_str();
-
-	// 创建着色器对象
-	GLint nVertShader = glCreateShader(GL_VERTEX_SHADER);
-	GLint nFragShader = glCreateShader(GL_FRAGMENT_SHADER);
-
-	// 加载着色器代码进入着色器对象
-	glShaderSource(nVertShader, 1, &cVShaderSource, nullptr);
-	glShaderSource(nFragShader, 1, &vFShaderSource, nullptr);
-
-	// 编译着色器
-	glCompileShader(nVertShader);
-	ErrorUtil::CheckOpenGLError();
-	glGetShaderiv(nVertShader, GL_COMPILE_STATUS, &nVertexComplied);
-	if (nVertexComplied != 1)
-	{
-		cout << "Vertex compilation failed! " << endl;
-		ErrorUtil::PrintShaderLog(nVertShader);
-	}
-	glCompileShader(nFragShader);
-	ErrorUtil::CheckOpenGLError();
-	glGetShaderiv(nFragShader, GL_COMPILE_STATUS, &nVertexComplied);
-	if (nVertexComplied != 1)
-	{
-		cout << "Vertex compilation failed! " << endl;
-		ErrorUtil::PrintShaderLog(nFragShader);
-	}
-
-	// 创建Program对象
-	GLint nVFProgram = glCreateProgram();
-
-	// 附加着色器对象到Program对象
-	glAttachShader(nVFProgram, nVertShader);
-	glAttachShader(nVFProgram, nFragShader);
-
-	// 链接Program对象
-	glLinkProgram(nVFProgram);
-	ErrorUtil::CheckOpenGLError();
-	glGetProgramiv(nVFProgram, GL_LINK_STATUS, &nLinked);
-	if (nLinked != 1)
-	{
-		cout << "Linked Failed! " << endl;
-		ErrorUtil::PrintProgramLog(nVFProgram);
-	}
-
-	// 返回Program对象
 	return nVFProgram;
 }

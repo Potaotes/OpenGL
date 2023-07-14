@@ -6,6 +6,8 @@
 #include "Util/ErrorUtil.h"
 
 #include "../Core/CharacterTwo/CProgram2_2.h"
+#include "../Core/CharacterTwo/CProgram2_5.h"
+#include "../Core/CharacterTwo/CProgram2_6.h"
 
 constexpr int numVAOs = 1;
 
@@ -44,13 +46,19 @@ int main(void)
 	// 创建示例对象
 	// 第二章
 	CProgram2_2* pProgram2_2 = new CProgram2_2();
+	CProgram2_5* pProgram2_5 = new CProgram2_5();
+	CProgram2_6* pProgram2_6 = new CProgram2_6();
 
 	// 自定义初始化函数
-	pProgram2_2->Init(pWindow, nRenderingProgram, numVAOs, arrVAO);
+	pProgram2_2->Init(pWindow, numVAOs, arrVAO);
+	pProgram2_5->Init(pWindow, numVAOs, arrVAO);
+	pProgram2_6->Init(pWindow, numVAOs, arrVAO);
 
 	while (!glfwWindowShouldClose(pWindow))	// 判断窗口是否关闭
 	{
-		pProgram2_2->Display(pWindow, glfwGetTime(), nRenderingProgram);
+		//pProgram2_2->Display(pWindow, glfwGetTime());
+		//pProgram2_5->Display(pWindow, glfwGetTime());
+		pProgram2_6->Display(pWindow, glfwGetTime());
 
 		glfwSwapBuffers(pWindow);	// 绘制屏幕 交换缓冲区
 		glfwPollEvents();	// 处理窗口相关事件（如按键事件）

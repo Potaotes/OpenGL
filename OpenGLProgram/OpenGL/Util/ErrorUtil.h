@@ -15,7 +15,7 @@ public:
 	static void PrintShaderLog(GLuint nShaderId);
 
 	/// <summary>
-	/// 打印程序对象日志
+	/// 打印Program对象日志
 	/// </summary>
 	/// <param name="nProg"></param>
 	static void PrintProgramLog(int nProgramId);

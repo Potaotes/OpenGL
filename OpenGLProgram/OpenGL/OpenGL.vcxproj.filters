@@ -33,6 +33,15 @@
     <ClCompile Include="Core\CProgramBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Core\CharacterTwo\CProgram2_5.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\ShaderUtil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\CharacterTwo\CProgram2_6.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\glew32.lib" />
@@ -928,6 +937,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Core\CProgramBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\CharacterTwo\CProgram2_5.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\ShaderUtil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\CharacterTwo\CProgram2_6.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
